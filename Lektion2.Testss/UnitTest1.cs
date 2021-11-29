@@ -161,5 +161,44 @@ namespace Lektion2.Tests
 
         #endregion
 
+        [Fact]
+        public void Test_IsPositive_True()
+        {
+            var kronor = new Kronor(10, 0);
+
+            var result = kronor.IsPositive();
+
+            Assert.True(result);
+        }
+        
+        [Fact]
+        public void Test_IsPositive_False()
+        {
+            var kronor = new Kronor(-10, 0);
+
+            var result = kronor.IsPositive();
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void CreateAccountAndAddMoney_Test()
+        {
+            var act1 = new Account(new Kronor(10,20));
+
+            Assert.Equal(10, act1.Amount.KronorPart());
+            Assert.Equal(20, act1.Amount.ÖrenPart());
+            Assert.Equal(1020, act1.Amount.Öre);
+
+        }
+
+        [Fact]
+        public void AddingNullToAccount_test()
+        {
+            var act1 = new Account();
+
+            Assert.Null(act1.Amount);
+        }
+
     }
 }

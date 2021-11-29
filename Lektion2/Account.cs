@@ -15,6 +15,9 @@ namespace Lektion2
          */
         private Kronor amount;
 
+        public Kronor Amount { get { return amount; } set { amount = value; } }
+
+
         // Skapar ett tomt konto
         public Account()
         {
@@ -24,7 +27,7 @@ namespace Lektion2
         // Skapar ett konto med pengar i
         public Account(Kronor money)
         {
-            Deposit(money);
+            Amount = new Kronor(money);
         }
 
         /* 
@@ -32,7 +35,7 @@ namespace Lektion2
          */
         public void Deposit(Kronor money)
         {
-            amount = amount.Add(money);
+            Amount = Amount.Add(money);
         }
 
         /*
@@ -41,7 +44,7 @@ namespace Lektion2
          */
         public void Withdraw(Kronor money)
         {
-            amount = amount.Add(money);
+            Amount = Amount.Subtract(money);
         }
 
         /*
@@ -49,7 +52,7 @@ namespace Lektion2
          */
         public void RemoveAll()
         {
-            amount = new Kronor();
+            Amount = new Kronor();
         }
 
         /*
